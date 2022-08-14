@@ -1,6 +1,7 @@
+import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <h1>Todo List</h1>
