@@ -1,12 +1,18 @@
-import 'bootstrap/dist/css/bootstrap.css';
-import './App.css';
+import { useReducer } from "react";
+import "./App.css";
+import todoReducer from "./Context/reducer";
+import { TodoContext } from "./Context/TodoContext";
 
 const App = () => {
+  const [todos, dispatch] = useReducer(todoReducer, []);
+
   return (
-    <div className="App">
-      <h1>Todo List</h1>
-    </div>
+    <TodoContext.Provider value={{ todos, dispatch }}>
+      <div className="App">
+        <h1>Todo List</h1>
+      </div>
+    </TodoContext.Provider>
   );
-}
+};
 
 export default App;
