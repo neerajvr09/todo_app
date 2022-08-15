@@ -3,12 +3,12 @@ import { TodoContext } from "../Context/TodoContext";
 import { FaCheckDouble } from "react-icons/fa";
 
 const Todos = () => {
-  const { todos, dispatch } = useContext(TodoContext);
+  const { todos, dispatch } = useContext(TodoContext);       
 
   return (
-    <ul>
+    <ul style={{listStyle:"none"}}>
       {todos.map((todo) => (
-        <list>
+        <li key={todo.id}>
           {todo.todoString}
           <span>
             <FaCheckDouble
@@ -20,7 +20,7 @@ const Todos = () => {
               }}
             />
           </span>
-        </list>
+        </li>
       ))}
     </ul>
   );
