@@ -5,9 +5,9 @@ import Todos from "./Components/Todos";
 import todoReducer from "./Context/reducer";
 import { TodoContext } from "./Context/TodoContext";
 
-const initializer = () => (
-  JSON.parse(localStorage.getItem('todos'))
-)
+// const initializer = () => (
+//   JSON.parse(localStorage.getItem('todos'))
+// )
 
 const App = () => {
   const [todos, dispatch] = useReducer(todoReducer, [], initializer);
