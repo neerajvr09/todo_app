@@ -10,7 +10,7 @@ import { TodoContext } from "./Context/TodoContext";
 // )
 
 const App = () => {
-  const [todos, dispatch] = useReducer(todoReducer, [], initializer);
+  const [todos, dispatch] = useReducer(todoReducer, []);
 
   useEffect(()=>{
     localStorage.setItem("todos", JSON.stringify(todos))
