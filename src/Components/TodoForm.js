@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { TodoContext } from "../Context/TodoContext";
 import { v4 } from "uuid";
+import { FormGroup, Input, Button, Form, InputGroup } from "reactstrap";
 
 const TodoForm = () => {
   const [todoString, setTodoString] = useState("");
@@ -24,18 +25,23 @@ const TodoForm = () => {
   };
 
   return (
-    <form>
-      <h4>Add a task</h4>
-      <input
-        type="text"
-        name="todo"
-        id="todo"
-        placeholder="Your next todo..."
-        value={todoString}
-        onChange={(e) => setTodoString(e.target.value)}
-      />
-      <button onClick={submitHandler}>Add Task</button>
-    </form>
+    <Form>
+      <FormGroup>
+        <InputGroup>
+          <Input
+            type="text"
+            name="todo"
+            id="todo"
+            placeholder="Your next todo..."
+            value={todoString}
+            onChange={(e) => setTodoString(e.target.value)}
+          />
+          <Button color="warning" onClick={submitHandler}>
+            Add Task
+          </Button>
+        </InputGroup>
+      </FormGroup>
+    </Form>
   );
 };
 
