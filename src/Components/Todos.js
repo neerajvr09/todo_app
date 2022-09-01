@@ -12,6 +12,7 @@ const Todos = () => {
         <ListGroupItem key={todo.id}>
           {todo.todoString}
           <span
+          className="float-end"
             onClick={() => {
               dispatch({
                 type: "REMOVE_TODO",
