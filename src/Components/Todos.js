@@ -1,28 +1,29 @@
 import React, { useContext } from "react";
 import { TodoContext } from "../Context/TodoContext";
 import { FaCheckDouble } from "react-icons/fa";
+import { ListGroup, ListGroupItem } from "reactstrap";
 
 const Todos = () => {
-  const { todos, dispatch } = useContext(TodoContext);       
+  const { todos, dispatch } = useContext(TodoContext);
 
   return (
-    <ul style={{listStyle:"none"}}>
+    <ListGroup className="mt-5 mb-2">
       {todos.map((todo) => (
-        <li key={todo.id}>
+        <ListGroupItem key={todo.id}>
           {todo.todoString}
-          <span>
-            <FaCheckDouble
-              onClick={() => {
-                dispatch({
-                  type: "REMOVE_TODO",
-                  payload: todo.id,
-                });
-              }}
-            />
+          <span
+            onClick={() => {
+              dispatch({
+                type: "REMOVE_TODO",
+                payload: todo.id,
+              });
+            }}
+          >
+            <FaCheckDouble />
           </span>
-        </li>
+        </ListGroupItem>
       ))}
-    </ul>
+    </ListGroup>
   );
 };
 
