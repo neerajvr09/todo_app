@@ -7,12 +7,14 @@ import Todos from "./Components/Todos";
 import todoReducer from "./Context/reducer";
 import { TodoContext } from "./Context/TodoContext";
 
-// const initializer = () => (
-//   JSON.parse(localStorage.getItem('todos'))
-// )
+const initializer = () => {
+   const localTodos = localStorage.getItem('todos')
+   const data = localTodos ? JSON.parse(localTodos) : [];
+   return data
+}
 
 const App = () => {
-  const [todos, dispatch] = useReducer(todoReducer, []);
+  const [todos, dispatch] = useReducer(todoReducer, [], initializer);
 
   useEffect(()=>{
     localStorage.setItem("todos", JSON.stringify(todos))
